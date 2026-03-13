@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muaaz Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="cursor-blob"></div>
+    <div class="cursor-buble"></div>
+
+    <nav class="navbar">
+        <a href="#" class="logo">Muaaz <span>Web Developer</span></a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#contact" class="btn-nav">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h3 class="subtitle">HELLO, I AM</h3>
+            <h1 class="title">Muaaz <br> <span class="gradient-text">Web Developer</span></h1>
+            <div class="description">
+                <ul>
+                    <li><strong>Modern Web Development:</strong> Crafting responsive, SEO-friendly, and lightning-fast websites using the latest technologies.</li>
+                    <li><strong>UI/UX Implementation:</strong> Translating complex designs into functional, interactive, and intuitive user interfaces.</li>
+                    <li><strong>API & Backend Architecture:</strong> Building robust server-side logic and seamless third-party integrations.</li>
+                    <li><strong>Maintenance & Optimization:</strong> Enhancing existing platforms to ensure peak performance and security.</li>
+                </ul>
+            </div>
+            <div class="hero-btns">
+                <a href="#contact" class="btn primary-btn">Hire Me <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-wrapper">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="placeholder-img">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact section">
+        <div class="section-title">
+            <h2>Get In <span class="gradient-text">Touch</span></h2>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Let's talk about everything!</h3>
+                <p>Feel free to reach out for collaborations, gig opportunities, or just to say hi.</p>
+                <div class="contact-methods">
+                    <div class="method">
+                        <i class="fas fa-envelope"></i>
+                        <span><a href="mailto:muaazkori@gmail.com">muaazkori@gmail.com</a></span>
+                    </div>
+                    <div class="method">
+                        <i class="fas fa-phone"></i>
+                        <span><a href="tel:+923029111856">+92 3029111856</a></span>
+                    </div>
+                    <div class="method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><a href="https://www.google.com/maps/search/?api=1&query=Main+Hyderabad+Road+Toor+Colony+Near+Hira+Public+School,+Tando+Adam,+Pakistan" target="_blank"><span>Main Hyderabad Road Toor Colony Near Hira Public School,</span><br><span>Tando Adam, Pakistan</span></a></span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://wa.me/923029111856" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/share/17ux9hoHFJ/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@muaazwebdevelop" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/muaazwebdeveloper?igsh=MWkyZ2Y4bG5rOTVlcA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="senderName" placeholder="Name" required>
+                    <input type="email" id="senderEmail" placeholder="Email" required>
+                </div>
+                <input type="text" id="senderSubject" placeholder="Subject" required>
+                <textarea id="senderMessage" rows="5" placeholder="Message" required></textarea>
+                <button type="button" onclick="sendWhatsApp()" class="btn primary-btn submit-btn">Send via WhatsApp <i class="fab fa-whatsapp"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Muaaz Web Developer. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
