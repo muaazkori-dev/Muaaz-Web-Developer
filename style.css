@@ -1,14 +1,14 @@
 :root {
-    --bg-color: #080808;
-    --card-bg: rgba(20, 20, 22, 0.4);
-    --border-color: rgba(255, 255, 255, 0.08);
-    --border-hover: rgba(255, 255, 255, 0.2);
-    --text-main: #f0f0f0;
-    --text-muted: #9ba1a6;
-    --primary: #9d4edd;
-    --secondary: #c77dff;
-    --accent: #e0aaff;
-    --gradient: linear-gradient(135deg, var(--secondary), var(--accent));
+    --bg-color: #0b1120; /* Deep navy blue background */
+    --card-bg: rgba(20, 30, 50, 0.4); /* Transparent blue-tinted card */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(76, 201, 240, 0.5); /* Cyan glow border */
+    --text-main: #ffffff;
+    --text-muted: #a0aec0;
+    --primary: #4cc9f0; /* Bright Teal/Cyan */
+    --secondary: #4361ee; /* Royal blue */
+    --accent: #3f37c9;
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'Outfit', sans-serif;
 }
@@ -37,36 +37,35 @@ body {
 /* Background Glass Shapes */
 .glass-shape {
     position: fixed;
-    border-radius: 50%;
     filter: blur(120px);
     z-index: -1;
-    opacity: 0.15;
+    opacity: 0.3;
     animation: drift 20s infinite alternate ease-in-out;
 }
 
 .glass-1 {
-    width: 40vw;
-    height: 40vw;
-    background: var(--primary);
-    top: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    top: -20%;
     left: -10%;
 }
 
 .glass-2 {
-    width: 30vw;
-    height: 30vw;
-    background: #4cc9f0;
-    bottom: -10%;
-    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+    bottom: -20%;
+    right: -20%;
     animation-delay: -5s;
 }
 
 .glass-3 {
-    width: 25vw;
-    height: 25vw;
-    background: var(--secondary);
-    top: 40%;
-    left: 60%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, #7209b7 0%, transparent 70%); /* Soft purple mixed into the blue */
+    top: 30%;
+    left: 40%;
     animation-delay: -10s;
 }
 
@@ -195,34 +194,38 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 100px 40px;
+    padding: 120px 40px;
     position: relative;
     overflow: hidden;
+    background: radial-gradient(circle at 50% 100%, rgba(76, 201, 240, 0.1) 0%, transparent 60%);
 }
 
 .hero-subtitle {
-    color: var(--text-muted);
+    color: var(--primary);
     font-size: 1.2rem;
     margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
 }
 
 .hero-title {
-    font-size: clamp(3rem, 8vw, 6.5rem);
-    line-height: 1;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1.1;
     margin-bottom: 30px;
-    background: linear-gradient(180deg, #fff, #a5a5a5);
+    background: linear-gradient(180deg, #fff 0%, #a5efff 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     font-weight: 800;
-    text-shadow: 0 0 40px rgba(199, 125, 255, 0.3);
+    text-shadow: 0 0 30px rgba(76, 201, 240, 0.4);
 }
 
 .hero-tagline {
     color: var(--text-muted);
-    font-size: 1.2rem;
-    max-width: 600px;
+    font-size: 1.25rem;
+    max-width: 700px;
 }
 
 /* About Section */
@@ -368,21 +371,22 @@ a {
 .contact-form textarea {
     width: 100%;
     padding: 16px 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--border-color);
+    background: rgba(10, 15, 30, 0.5);
+    border: 1px solid rgba(76, 201, 240, 0.2);
     border-radius: 12px;
     color: white;
     font-family: var(--font-body);
     font-size: 1rem;
     transition: all 0.3s ease;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: var(--secondary);
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 15px rgba(199, 125, 255, 0.1);
+    border-color: var(--primary);
+    background: rgba(76, 201, 240, 0.05);
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.3), inset 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .submit-btn {
@@ -400,12 +404,13 @@ a {
     align-items: center;
     gap: 10px;
     margin-top: 5px;
+    box-shadow: 0 0 20px rgba(76, 201, 240, 0.4);
 }
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(199, 125, 255, 0.3);
-    filter: brightness(1.1);
+    box-shadow: 0 0 30px rgba(76, 201, 240, 0.6);
+    filter: brightness(1.2);
 }
 
 /* Contact Info Layout */
