@@ -1,10 +1,4 @@
-// Custom Cursor Glow Effect
-document.addEventListener('mousemove', (e) => {
-    const blob = document.querySelector('.cursor-blob');
-    if (blob) {
-        blob.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
-    }
-});
+// Custom Cursor Glow Effect removed in favor of floating glass shapes.
 
 // Scroll Effects
 const navbar = document.querySelector('.navbar');
@@ -18,10 +12,10 @@ window.addEventListener('scroll', () => {
 });
 
 // Reveal Animation on Scroll
-const sections = document.querySelectorAll('.section');
+const sections = document.querySelectorAll('.bento-card');
 
 const revealSection = () => {
-    const triggerBottom = window.innerHeight * 0.8;
+    const triggerBottom = window.innerHeight * 0.85;
 
     sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top;
@@ -35,7 +29,7 @@ const revealSection = () => {
 
 // Initial state for sections
 sections.forEach(section => {
-    if(section.id !== 'home') {
+    if(!section.classList.contains('hero-card')) {
         section.style.opacity = '0';
         section.style.transform = 'translateY(50px)';
         section.style.transition = 'all 0.8s ease-out';

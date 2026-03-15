@@ -7,96 +7,158 @@
     <!-- Favicon Icon -->
     <link rel="icon" type="image/png" href="favicon.png?v=3">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="cursor-blob"></div>
-    <div class="cursor-buble"></div>
+    <div class="glass-shape glass-1"></div>
+    <div class="glass-shape glass-2"></div>
+    <div class="glass-shape glass-3"></div>
 
-    <nav class="navbar">
-        <a href="#" class="logo">Muaaz <span>Web Developer</span></a>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#contact" class="btn-nav">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
-        </div>
-    </nav>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="navbar bento-card">
+            <a href="#" class="logo">&lt;M&gt; <span>MUAAZ</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="btn-resume">[Hire Me]</a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h3 class="subtitle">HELLO, I AM</h3>
-            <h1 class="title">Muaaz <br> <span class="gradient-text">Web Developer</span></h1>
-            <div class="description">
-                <ul>
-                    <li><strong>Modern Web Development:</strong> Crafting responsive, SEO-friendly, and lightning-fast websites using the latest technologies.</li>
-                    <li><strong>UI/UX Implementation:</strong> Translating complex designs into functional, interactive, and intuitive user interfaces.</li>
-                    <li><strong>API & Backend Architecture:</strong> Building robust server-side logic and seamless third-party integrations.</li>
-                    <li><strong>Maintenance & Optimization:</strong> Enhancing existing platforms to ensure peak performance and security.</li>
-                </ul>
-            </div>
-            <div class="hero-btns">
-                <a href="#contact" class="btn primary-btn">Hire Me <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <div class="image-wrapper">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="placeholder-img">
-                    <i class="fas fa-code"></i>
+        <!-- Main Grid Layout -->
+        <main class="bento-grid">
+            
+            <!-- Hero Section -->
+            <section id="home" class="bento-card hero-card">
+                <div class="hero-content">
+                    <p class="hero-subtitle">Muaaz Kori</p>
+                    <h1 class="hero-title">WEB DEVELOPER</h1>
+                    <p class="hero-tagline">Building Performant & User-Centric Web Applications</p>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="contact" class="contact section">
-        <div class="section-title">
-            <h2>Get In <span class="gradient-text">Touch</span></h2>
-        </div>
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>Let's talk about everything!</h3>
-                <p>Feel free to reach out for collaborations, gig opportunities, or just to say hi.</p>
-                <div class="contact-methods">
-                    <div class="method">
-                        <i class="fas fa-envelope"></i>
-                        <span><a href="mailto:muaazkori@gmail.com">muaazkori@gmail.com</a></span>
-                    </div>
-                    <div class="method">
-                        <i class="fas fa-phone"></i>
-                        <span><a href="tel:+923029111856">+92 3029111856</a></span>
-                    </div>
-                    <div class="method">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span><a href="https://www.google.com/maps/search/?api=1&query=Main+Hyderabad+Road+Toor+Colony+Near+Hira+Public+School,+Tando+Adam,+Pakistan" target="_blank"><span>Main Hyderabad Road Toor Colony Near Hira Public School,</span><br><span>Tando Adam, Pakistan</span></a></span>
+            <!-- About Section -->
+            <section id="about" class="bento-card about-card">
+                <div class="card-header">
+                    <span class="card-label">ABOUT</span>
+                </div>
+                <div class="about-content">
+                    <div class="about-top">
+                        <div class="about-text">
+                            <h3>Hello! I'm Muaaz.</h3>
+                            <p>A passionate web developer specializing in creating scalable web solutions, crafting responsive interfaces, and seamless seamless integrations.</p>
+                        </div>
+                        <div class="about-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="social-links">
-                    <a href="https://wa.me/923029111856" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.facebook.com/share/17ux9hoHFJ/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com/@muaazwebdevelop" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/muaazwebdeveloper?igsh=MWkyZ2Y4bG5rOTVlcA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                
+                <div class="tech-stack">
+                    <span class="card-label">Tech stack</span>
+                    <div class="badges">
+                        <span class="badge"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="badge"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="badge"><i class="fas fa-server"></i> Backend</span>
+                        <span class="badge"><i class="fas fa-paint-brush"></i> UI/UX</span>
+                        <span class="badge"><i class="fas fa-code-branch"></i> API</span>
+                    </div>
                 </div>
-            </div>
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <input type="text" id="senderName" placeholder="Name" required>
-                    <input type="email" id="senderEmail" placeholder="Email" required>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="bento-card services-card">
+                <div class="card-header">
+                    <span class="card-label">SERVICES</span>
                 </div>
-                <input type="text" id="senderSubject" placeholder="Subject" required>
-                <textarea id="senderMessage" rows="5" placeholder="Message" required></textarea>
-                <button type="button" onclick="sendWhatsApp()" class="btn primary-btn submit-btn">Send via WhatsApp <i class="fab fa-whatsapp"></i></button>
-            </form>
-        </div>
-    </section>
+                <div class="services-grid">
+                    <div class="service-box">
+                        <i class="fas fa-desktop"></i>
+                        <h4>1. Frontend Development</h4>
+                        <p>Crafting responsive, SEO-friendly, and lightning-fast websites.</p>
+                    </div>
+                    <div class="service-box">
+                        <i class="fas fa-server"></i>
+                        <h4>2. Backend Architecture</h4>
+                        <p>Building robust server-side logic & seamless third-party integrations.</p>
+                    </div>
+                    <div class="service-box">
+                        <i class="fas fa-object-group"></i>
+                        <h4>3. UI/UX Implementation</h4>
+                        <p>Translating complex designs into intuitive user interfaces.</p>
+                    </div>
+                    <div class="service-box">
+                        <i class="fas fa-wrench"></i>
+                        <h4>4. Maintenance & Opt.</h4>
+                        <p>Enhancing existing platforms for peak performance and security.</p>
+                    </div>
+                </div>
+            </section>
 
-    <footer>
-        <p>&copy; 2026 Muaaz Web Developer. All rights reserved.</p>
-    </footer>
+            <!-- Contact Section -->
+            <section id="contact" class="bento-card contact-card">
+                <div class="card-header">
+                    <span class="card-label">CONTACT</span>
+                </div>
+                <div class="contact-layout">
+                    <!-- Form -->
+                    <div class="form-container">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-row">
+                                <input type="text" id="senderName" placeholder="Name" required>
+                                <input type="email" id="senderEmail" placeholder="Email" required>
+                            </div>
+                            <input type="text" id="senderSubject" placeholder="Subject" required>
+                            <textarea id="senderMessage" rows="4" placeholder="Message" required></textarea>
+                            <button type="button" onclick="sendWhatsApp()" class="submit-btn">Send Message <i class="fab fa-whatsapp"></i></button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="info-container">
+                        <div class="contact-info-list">
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:muaazkori@gmail.com">muaazkori@gmail.com</a>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+923029111856">+92 3029111856</a>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Main+Hyderabad+Road+Toor+Colony+Near+Hira+Public+School,+Tando+Adam,+Pakistan" target="_blank">
+                                    Main Hyderabad Rd, Tando Adam
+                                </a>
+                            </div>
+                        </div>
 
+                        <div class="social-links-footer">
+                            <span class="card-label">Socials</span>
+                            <div class="social-icons">
+                                <a href="https://wa.me/923029111856" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.facebook.com/share/17ux9hoHFJ/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.tiktok.com/@muaazwebdevelop" target="_blank"><i class="fab fa-tiktok"></i></a>
+                                <a href="https://www.instagram.com/muaazwebdeveloper?igsh=MWkyZ2Y4bG5rOTVlcA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="site-footer">
+            <p>&copy; 2026 Muaaz Web Developer. All rights reserved.</p>
+        </footer>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
