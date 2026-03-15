@@ -1,4 +1,10 @@
-// Custom Cursor Glow Effect removed in favor of floating glass shapes.
+// Custom Cursor Glow Effect
+document.addEventListener('mousemove', (e) => {
+    const blob = document.querySelector('.cursor-blob');
+    if (blob) {
+        blob.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+    }
+});
 
 // Scroll Effects
 const navbar = document.querySelector('.navbar');
@@ -12,10 +18,10 @@ window.addEventListener('scroll', () => {
 });
 
 // Reveal Animation on Scroll
-const sections = document.querySelectorAll('.bento-card');
+const sections = document.querySelectorAll('.section');
 
 const revealSection = () => {
-    const triggerBottom = window.innerHeight * 0.85;
+    const triggerBottom = window.innerHeight * 0.8;
 
     sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top;
@@ -29,7 +35,7 @@ const revealSection = () => {
 
 // Initial state for sections
 sections.forEach(section => {
-    if(!section.classList.contains('hero-card')) {
+    if(section.id !== 'home') {
         section.style.opacity = '0';
         section.style.transform = 'translateY(50px)';
         section.style.transition = 'all 0.8s ease-out';
@@ -83,14 +89,7 @@ function sendWhatsApp() {
     }
 
     const myNumber = "923029111856";
-    const whatsappMessage = `*New Message from Portfolio Website!*
-    
-*Name:* ${name}
-*Email:* ${email}
-*Subject:* ${subject}
-
-*Message:*
-${message}`;
+    const whatsappMessage = `*New Message from Portfolio Website!*\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n\n*Message:*\n${message}`;
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappURL = `https://wa.me/${myNumber}?text=${encodedMessage}`;
