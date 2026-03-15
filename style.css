@@ -261,16 +261,16 @@ a {
 
 .description li {
     margin-bottom: 12px;
-    padding-left: 25px;
+    padding-left: 20px;
+    text-indent: -20px;
     position: relative;
     line-height: 1.8;
 }
 
 .description li::before {
     content: '❯';
-    position: absolute;
-    left: 0;
-    top: 2px;
+    position: relative;
+    margin-right: 10px;
     color: var(--primary);
     font-size: 0.9rem;
 }
