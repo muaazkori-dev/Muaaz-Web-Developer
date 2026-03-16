@@ -76,8 +76,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-/* Form to WhatsApp */
-function sendWhatsApp() {
+/* Form Submit Logic (WhatsApp for PK, Email for others) */
+let userCountry = "PK"; // Default to Pakistan
+
+async function fetchUserLocation() {
+    try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        if (data.country_code) {
+            userCountry = data.country_code;
+        }
+        
+        const btn = document.getElementById('submitBtn');
+        if (btn) {
+            if (userCountry === 'PK') {
+                btn.innerHTML = 'Send via WhatsApp <i class="fab fa-whatsapp"></i>';
+            } else {
+                btn.innerHTML = 'Send via Email <i class="fas fa-envelope"></i>';
+            }
+        }
+    } catch (error) {
+        console.error("Error fetching location:", error);
+    }
+}
+
+// Fetch location when DOM is loaded
+document.addEventListener('DOMContentLoaded', fetchUserLocation);
+
+function handleFormSubmit() {
     const name = document.getElementById('senderName').value;
     const email = document.getElementById('senderEmail').value;
     const subject = document.getElementById('senderSubject').value;
@@ -88,11 +114,25 @@ function sendWhatsApp() {
         return;
     }
 
-    const myNumber = "923029111856";
-    const whatsappMessage = `*New Message from Portfolio Website!*\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n\n*Message:*\n${message}`;
+    if (userCountry === 'PK') {
+        // WhatsApp Logic
+        const myNumber = "923029111856";
+        const whatsappMessage = `*New Message from Portfolio Website!*\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n\n*Message:*\n${message}`;
 
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappURL = `https://wa.me/${myNumber}?text=${encodedMessage}`;
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappURL = `https://wa.me/${myNumber}?text=${encodedMessage}`;
 
-    window.open(whatsappURL, '_blank');
+        window.open(whatsappURL, '_blank');
+    } else {
+        // Email Logic (mailto opens default email client)
+        const myEmail = "muaazkori@gmail.com";
+        const emailSubject = `New Message from Portfolio: ${subject || 'No Subject'}`;
+        const emailBody = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+        const encodedSubject = encodeURIComponent(emailSubject);
+        const encodedBody = encodeURIComponent(emailBody);
+        const mailtoURL = `mailto:${myEmail}?subject=${encodedSubject}&body=${encodedBody}`;
+
+        window.open(mailtoURL, '_self');
+    }
 }
