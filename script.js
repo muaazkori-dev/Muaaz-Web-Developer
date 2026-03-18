@@ -52,9 +52,16 @@ const navLinks = document.querySelector('.nav-links');
 
 if (hamburger) {
     hamburger.addEventListener('click', () => {
-        // Simple toggle for now
-        // In a real app we would add a mobile menu container
-        alert('Mobile menu clicked! (To be implemented fully)');
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
     });
 }
 
@@ -83,8 +90,38 @@ async function fetchUserLocation() {
     try {
         const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
+        
         if (data.country_code) {
             userCountry = data.country_code;
+            
+            // Multi-Language Greeting Logic
+            const contactHeading = document.getElementById('contactHeading');
+            const contactSubheading = document.getElementById('contactSubheading');
+            
+            if (contactHeading && contactSubheading) {
+                // Determine language based on country for a "wow" factor
+                // Middle East (Arabic)
+                const arabicCountries = ['SA', 'AE', 'QA', 'KW', 'OM', 'BH', 'IQ', 'JO', 'LB', 'EG'];
+                // Spanish speaking
+                const spanishCountries = ['ES', 'MX', 'AR', 'CO', 'PE', 'VE', 'CL', 'EC', 'GT', 'CU'];
+                // French speaking
+                const frenchCountries = ['FR', 'CA', 'BE', 'CH', 'SN', 'CI', 'CM'];
+                
+                if (arabicCountries.includes(data.country_code)) {
+                    contactHeading.innerHTML = `دعنا <span class="gradient-text">نتحدث</span>`; // Let's talk
+                    contactSubheading.innerText = `لا تتردد في التواصل للتعاون أو فرص العمل أو مجرد إلقاء التحية.`;
+                } else if (spanishCountries.includes(data.country_code)) {
+                    contactHeading.innerHTML = `Ponte en <span class="gradient-text">Contacto</span>`;
+                    contactSubheading.innerText = `No dudes en contactarme para colaboraciones, oportunidades o simplemente para saludar.`;
+                } else if (frenchCountries.includes(data.country_code)) {
+                    contactHeading.innerHTML = `Entrer en <span class="gradient-text">Contact</span>`;
+                    contactSubheading.innerText = `N'hésitez pas à me contacter pour des collaborations, des opportunités ou juste pour dire bonjour.`;
+                } else if (data.country_code === 'PK' || data.country_code === 'IN') {
+                    // Optional: keep English or use Urdu/Hindi, sticking to English for PK as professional standard, maybe change Subheading
+                    contactHeading.innerHTML = `Get In <span class="gradient-text">Touch</span>`;
+                    contactSubheading.innerText = `Feel free to reach out for collaborations, gig opportunities, or just to say hi.`;
+                }
+            }
         }
         
         const btn = document.getElementById('submitBtn');
