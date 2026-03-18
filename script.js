@@ -138,15 +138,38 @@ async function fetchUserLocation() {
 }
 
 // Fetch location when DOM is loaded
-document.addEventListener('DOMContentLoaded', fetchUserLocation);
+document.addEventListener('DOMContentLoaded', () => {
+    fetchUserLocation();
+
+    const subjectSelect = document.getElementById('senderSubject');
+    const otherSubjectInput = document.getElementById('otherSubject');
+    
+    if (subjectSelect && otherSubjectInput) {
+        subjectSelect.addEventListener('change', (e) => {
+            if (e.target.value === 'Other') {
+                otherSubjectInput.style.display = 'block';
+                otherSubjectInput.required = true;
+            } else {
+                otherSubjectInput.style.display = 'none';
+                otherSubjectInput.required = false;
+                otherSubjectInput.value = '';
+            }
+        });
+    }
+});
 
 function handleFormSubmit() {
     const name = document.getElementById('senderName').value;
     const email = document.getElementById('senderEmail').value;
-    const subject = document.getElementById('senderSubject').value;
+    const subjectSelectValue = document.getElementById('senderSubject').value;
     const message = document.getElementById('senderMessage').value;
 
-    if (!name || !email || !message) {
+    let subject = subjectSelectValue;
+    if (subjectSelectValue === 'Other') {
+        subject = document.getElementById('otherSubject').value;
+    }
+
+    if (!name || !email || !message || (subjectSelectValue === 'Other' && !subject)) {
         alert("Please fill all required fields before sending.");
         return;
     }
