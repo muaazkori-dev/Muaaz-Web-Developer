@@ -158,10 +158,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function handleFormSubmit() {
+async function handleFormSubmit() {
     const name = document.getElementById('senderName').value;
     const email = document.getElementById('senderEmail').value;
     const subjectSelectValue = document.getElementById('senderSubject').value;
+    const urgency = document.getElementById('serviceUrgency');
+    const urgencyValue = urgency ? urgency.value : '';
     const message = document.getElementById('senderMessage').value;
 
     let subject = subjectSelectValue;
@@ -169,15 +171,82 @@ function handleFormSubmit() {
         subject = document.getElementById('otherSubject').value;
     }
 
-    if (!name || !email || !message || (subjectSelectValue === 'Other' && !subject)) {
+    if (!name || !email || !message || !urgencyValue || (subjectSelectValue === 'Other' && !subject)) {
         alert("Please fill all required fields before sending.");
         return;
+    }
+
+    // Email Syntax Validation
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address format.");
+        return;
+    }
+
+    // Common Email Typo Validation
+    const domain = email.split('@')[1].toLowerCase();
+    const commonTypos = {
+        'gmai.com': 'gmail.com',
+        'g.om': 'gmail.com',
+        'gamil.com': 'gmail.com',
+        'gmail.co': 'gmail.com',
+        'gmail.con': 'gmail.com',
+        'gmail.cm': 'gmail.com',
+        'gamil.con': 'gmail.com',
+        'yaho.com': 'yahoo.com',
+        'yahoo.co': 'yahoo.com',
+        'outlok.com': 'outlook.com',
+        'hotmai.com': 'hotmail.com',
+        'hotmail.co': 'hotmail.com'
+    };
+
+    if (commonTypos[domain]) {
+        alert(`Your email domain seems incorrect. Did you mean ${email.split('@')[0]}@${commonTypos[domain]}? Please fix it to continue.`);
+        return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    let originalBtnText = 'Send Message';
+    if (btn) {
+        originalBtnText = btn.innerHTML;
+        btn.innerHTML = 'Verifying Email... <i class="fas fa-spinner fa-spin"></i>';
+        btn.disabled = true;
+    }
+
+    // Live Domain Availability Check (DNS MX via Google DoH)
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        
+        const response = await fetch(`https://dns.google/resolve?name=${domain}&type=MX`, {
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        
+        const data = await response.json();
+        
+        // Status 3 is NXDOMAIN (domain does not exist)
+        if (data.Status === 3) {
+            alert(`The email domain "${domain}" does not exist or is not active. Please verify your email address.`);
+            if (btn) {
+                btn.innerHTML = originalBtnText;
+                btn.disabled = false;
+            }
+            return;
+        }
+    } catch (error) {
+        console.warn('DNS lookup failed due to network, bypassing strict domain validation.');
+    }
+
+    if (btn) {
+        btn.innerHTML = originalBtnText;
+        btn.disabled = false;
     }
 
     if (userCountry === 'PK') {
         // WhatsApp Logic
         const myNumber = "923029111856";
-        const whatsappMessage = `*New Message from Portfolio Website!*\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n\n*Message:*\n${message}`;
+        const whatsappMessage = `*New Message from Portfolio Website!*\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n*Urgency:* ${urgencyValue}\n\n*Message:*\n${message}`;
 
         const encodedMessage = encodeURIComponent(whatsappMessage);
         const whatsappURL = `https://wa.me/${myNumber}?text=${encodedMessage}`;
@@ -187,7 +256,7 @@ function handleFormSubmit() {
         // Email Logic (mailto opens default email client)
         const myEmail = "muaazkori@gmail.com";
         const emailSubject = `New Message from Portfolio: ${subject || 'No Subject'}`;
-        const emailBody = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+        const emailBody = `Name: ${name}\nEmail: ${email}\nUrgency: ${urgencyValue}\n\nMessage:\n${message}`;
 
         const encodedSubject = encodeURIComponent(emailSubject);
         const encodedBody = encodeURIComponent(emailBody);
@@ -195,4 +264,28 @@ function handleFormSubmit() {
 
         window.open(mailtoURL, '_self');
     }
+}
+
+// Submit Review Function
+function submitReview() {
+    const name = document.getElementById('reviewerName').value;
+    const rating = document.getElementById('reviewRating').value;
+    const comment = document.getElementById('reviewText').value;
+
+    if (!name || !rating || !comment) {
+        alert("Please fill all fields to submit your review.");
+        return;
+    }
+
+    const myNumber = "923029111856";
+    const whatsappMessage = `*New Customer Review!*\n\n*Name:* ${name}\n*Rating:* ${rating} Stars ⭐\n\n*Review:*\n"${comment}"`;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappURL = `https://wa.me/${myNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappURL, '_blank');
+    
+    // Reset form after sending
+    document.getElementById('reviewForm').reset();
+    alert("Review submitted successfully via WhatsApp!");
 }

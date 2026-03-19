@@ -19,6 +19,7 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#contact" class="btn-nav">Contact</a></li>
         </ul>
         <div class="hamburger">
@@ -91,6 +92,59 @@
             </div>
         </div>
     </section>
+
+    <section id="reviews" class="reviews section">
+        <div class="section-title">
+            <h2>Client <span class="gradient-text">Reviews</span></h2>
+        </div>
+        
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"Muaaz is a fantastic developer. He delivered my portfolio exactly as I wanted and very quickly!"</p>
+                <h4 class="reviewer-name">- Ahmed K.</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="review-text">"Great communication and excellent coding skills. Highly recommended for web development."</p>
+                <h4 class="reviewer-name">- Sarah M.</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"Outstanding work! The E-commerce site he built for me is fast, modern, and beautiful."</p>
+                <h4 class="reviewer-name">- Ali R.</h4>
+            </div>
+        </div>
+
+        <div class="add-review-section">
+            <h3>Add Your Experience</h3>
+            <p style="color: var(--text-muted); margin-bottom: 20px; text-align: center;">Worked with me recently? Let others know how it went!</p>
+            <form id="reviewForm" class="contact-form review-form">
+                <div class="form-group" style="width: 100%;">
+                    <input type="text" id="reviewerName" placeholder="Your Name" required style="width: 100%;">
+                </div>
+                <div class="custom-select-wrapper">
+                    <select id="reviewRating" required>
+                        <option value="" disabled selected>Rate your experience</option>
+                        <option value="5">⭐⭐⭐⭐⭐ (5/5) Excellent</option>
+                        <option value="4">⭐⭐⭐⭐ (4/5) Very Good</option>
+                        <option value="3">⭐⭐⭐ (3/5) Average</option>
+                        <option value="2">⭐⭐ (2/5) Poor</option>
+                        <option value="1">⭐ (1/5) Terrible</option>
+                    </select>
+                </div>
+                <textarea id="reviewText" rows="4" placeholder="Write your review here..." required></textarea>
+                <button type="button" onclick="submitReview()" class="btn secondary-btn submit-btn" id="reviewBtn">Submit Review <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </section>
+
     <section id="contact" class="contact section">
         <div class="section-title">
             <h2 id="contactHeading">Get In <span class="gradient-text">Touch</span></h2>
@@ -136,6 +190,14 @@
                     </select>
                 </div>
                 <input type="text" id="otherSubject" placeholder="Please specify your subject" style="display: none;">
+                <div class="custom-select-wrapper">
+                    <select id="serviceUrgency" required>
+                        <option value="" disabled selected>Select Service Urgency</option>
+                        <option value="Normal Service (8-15 Days)">Normal Service (8-15 Days) - Standard Price</option>
+                        <option value="Urgent Service (4-7 Days)">Urgent Service (4-7 Days) - High Price</option>
+                        <option value="Very Urgent Service (2-3 Days)">Very Urgent Service (2-3 Days) - Premium Price</option>
+                    </select>
+                </div>
                 <textarea id="senderMessage" rows="5" placeholder="Message" required></textarea>
                 <button type="button" onclick="handleFormSubmit()" id="submitBtn" class="btn primary-btn submit-btn">Send via WhatsApp <i class="fab fa-whatsapp"></i></button>
             </form>
