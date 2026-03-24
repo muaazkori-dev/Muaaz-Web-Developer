@@ -26,11 +26,6 @@ html {
 
 body {
     background-color: var(--bg-color);
-    background-image: linear-gradient(rgba(5, 5, 5, 0.3), rgba(5, 5, 5, 0.5)), url('background.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
     color: var(--text-main);
     font-family: var(--font-body);
     line-height: 1.6;
@@ -317,6 +312,18 @@ a {
     box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.05);
     animation: morph 8s ease-in-out infinite;
     backdrop-filter: blur(10px);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    animation: morph 8s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
 }
 
 .shape {
