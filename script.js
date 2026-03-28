@@ -126,11 +126,7 @@ async function fetchUserLocation() {
         
         const btn = document.getElementById('submitBtn');
         if (btn) {
-            if (userCountry === 'PK') {
-                btn.innerHTML = 'Send via WhatsApp <i class="fab fa-whatsapp"></i>';
-            } else {
-                btn.innerHTML = 'Send via Email <i class="fas fa-envelope"></i>';
-            }
+            btn.innerHTML = 'Send via Email <i class="fas fa-envelope"></i>';
         }
     } catch (error) {
         console.error("Error fetching location:", error);
@@ -243,27 +239,16 @@ async function handleFormSubmit() {
         btn.disabled = false;
     }
 
-    if (userCountry === 'PK') {
-        // WhatsApp Logic
-        const myNumber = "923029111856";
-        const whatsappMessage = `*New Message from Portfolio Website!*\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n*Urgency:* ${urgencyValue}\n\n*Message:*\n${message}`;
+    // Email Logic (mailto opens default email client)
+    const myEmail = "muaazkori@gmail.com";
+    const emailSubject = `New Message from Portfolio: ${subject || 'No Subject'}`;
+    const emailBody = `Name: ${name}\nEmail: ${email}\nUrgency: ${urgencyValue}\n\nMessage:\n${message}`;
 
-        const encodedMessage = encodeURIComponent(whatsappMessage);
-        const whatsappURL = `https://wa.me/${myNumber}?text=${encodedMessage}`;
+    const encodedSubject = encodeURIComponent(emailSubject);
+    const encodedBody = encodeURIComponent(emailBody);
+    const mailtoURL = `mailto:${myEmail}?subject=${encodedSubject}&body=${encodedBody}`;
 
-        window.open(whatsappURL, '_blank');
-    } else {
-        // Email Logic (mailto opens default email client)
-        const myEmail = "muaazkori@gmail.com";
-        const emailSubject = `New Message from Portfolio: ${subject || 'No Subject'}`;
-        const emailBody = `Name: ${name}\nEmail: ${email}\nUrgency: ${urgencyValue}\n\nMessage:\n${message}`;
-
-        const encodedSubject = encodeURIComponent(emailSubject);
-        const encodedBody = encodeURIComponent(emailBody);
-        const mailtoURL = `mailto:${myEmail}?subject=${encodedSubject}&body=${encodedBody}`;
-
-        window.open(mailtoURL, '_self');
-    }
+    window.open(mailtoURL, '_self');
 }
 
 // Submit Review Function
@@ -277,15 +262,17 @@ function submitReview() {
         return;
     }
 
-    const myNumber = "923029111856";
-    const whatsappMessage = `*New Customer Review!*\n\n*Name:* ${name}\n*Rating:* ${rating} Stars ⭐\n\n*Review:*\n"${comment}"`;
+    const myEmail = "muaazkori@gmail.com";
+    const emailSubject = `New Customer Review from ${name}`;
+    const emailBody = `Name: ${name}\nRating: ${rating} Stars ⭐\n\nReview:\n"${comment}"`;
 
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappURL = `https://wa.me/${myNumber}?text=${encodedMessage}`;
+    const encodedSubject = encodeURIComponent(emailSubject);
+    const encodedBody = encodeURIComponent(emailBody);
+    const mailtoURL = `mailto:${myEmail}?subject=${encodedSubject}&body=${encodedBody}`;
 
-    window.open(whatsappURL, '_blank');
+    window.open(mailtoURL, '_self');
     
     // Reset form after sending
     document.getElementById('reviewForm').reset();
-    alert("Review submitted successfully via WhatsApp!");
+    alert("Review submitted successfully via Email!");
 }
