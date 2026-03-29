@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muaaz Web Developer</title>
     <!-- Favicon Icon -->
-    <link rel="icon" type="image/png" href="favicon.png?v=4">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="icon" type="image/png" href="icon_v2.png">
+    <link rel="stylesheet" href="style.css?v=5">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -19,7 +19,7 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#reviews">Reviews</a></li>
+            <!-- <li><a href="#reviews">Reviews</a></li> -->
             <li><a href="#contact" class="btn-nav">Contact</a></li>
         </ul>
         <div class="hamburger">
@@ -89,7 +89,8 @@
         </div>
     </section>
 
-    <section id="reviews" class="reviews section">
+    <!-- Entire reviews section disabled temporarily -->
+    <section id="reviews" class="reviews section" style="display: none !important;">
         <div class="section-title">
             <h2>Client <span class="gradient-text">Reviews</span></h2>
         </div>
@@ -118,7 +119,8 @@
             </div>
         </div>
 
-        <div class="add-review-section">
+        <!-- Rating section disabled temporarily -->
+        <div class="add-review-section" style="display: none !important;">
             <h3>Add Your Experience</h3>
             <p style="color: var(--text-muted); margin-bottom: 20px; text-align: center;">Worked with me recently? Let others know how it went!</p>
             <form id="reviewForm" class="contact-form review-form">
@@ -200,8 +202,23 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Muaaz Web Developer. All rights reserved.</p>
+    <footer class="modern-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">Muaaz <span>Web Dev</span></a>
+                <p>Crafting modern digital experiences with passion and precision.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://wa.me/923029111856" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/share/17ux9hoHFJ/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@muaazwebdevelop" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/muaazwebdeveloper?igsh=MWkyZ2Y4bG5rOTVlcA==" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Muaaz Web Developer. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: var(--accent);"></i></p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
