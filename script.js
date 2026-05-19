@@ -126,7 +126,7 @@ async function fetchUserLocation() {
         
         const btn = document.getElementById('submitBtn');
         if (btn) {
-            btn.innerHTML = 'Send via Email <i class="fas fa-envelope"></i>';
+            btn.innerHTML = 'Send via WhatsApp <i class="fab fa-whatsapp"></i>';
         }
     } catch (error) {
         console.error("Error fetching location:", error);
@@ -239,16 +239,14 @@ async function handleFormSubmit() {
         btn.disabled = false;
     }
 
-    // Email Logic (mailto opens default email client)
-    const myEmail = "muaazkori@gmail.com";
-    const emailSubject = `New Message from Portfolio: ${subject || 'No Subject'}`;
-    const emailBody = `Name: ${name}\nEmail: ${email}\nUrgency: ${urgencyValue}\n\nMessage:\n${message}`;
+    // WhatsApp Logic
+    const myPhone = "923029111856";
+    const whatsappText = `*New Message from Portfolio*\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject || 'No Subject'}\n*Urgency:* ${urgencyValue}\n\n*Message:*\n${message}`;
 
-    const encodedSubject = encodeURIComponent(emailSubject);
-    const encodedBody = encodeURIComponent(emailBody);
-    const mailtoURL = `mailto:${myEmail}?subject=${encodedSubject}&body=${encodedBody}`;
+    const encodedText = encodeURIComponent(whatsappText);
+    const whatsappURL = `https://wa.me/${myPhone}?text=${encodedText}`;
 
-    window.open(mailtoURL, '_self');
+    window.open(whatsappURL, '_blank');
 }
 
 // Submit Review Function
