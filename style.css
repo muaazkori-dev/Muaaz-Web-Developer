@@ -592,16 +592,14 @@ a {
 .project-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 40px 30px;
+    border-radius: 24px;
+    padding: 0; /* Remove padding to allow image to flush to borders */
     backdrop-filter: blur(10px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 350px;
 }
 
 .project-card::before {
@@ -629,12 +627,58 @@ a {
     transform: rotate(10deg);
 }
 
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.08);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.project-image:hover .project-overlay {
+    opacity: 1;
+}
+
+.preview-btn {
+    padding: 10px 25px;
+    font-size: 0.95rem;
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
 .project-content {
+    padding: 30px;
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex-grow: 1;
 }
 
 .project-content h3 {
@@ -998,5 +1042,251 @@ a {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4), 0 0 20px rgba(18, 140, 126, 0.2);
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    z-index: -1;
+    opacity: 0.7;
+    animation: waPulse 2s infinite ease-out;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6), 0 0 30px rgba(18, 140, 126, 0.4);
+    color: white;
+}
+
+.whatsapp-float i {
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover i {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Tooltip style */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 80px;
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: rgba(20, 20, 20, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+}
+
+@keyframes waPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+    .whatsapp-tooltip {
+        display: none !important; /* Hide tooltip on touch devices */
+    }
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    opacity: 0;
+    transition: 0.5s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-icon {
+    width: 65px;
+    height: 65px;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.service-card:hover .service-icon {
+    background: var(--gradient);
+    color: white;
+    border-color: transparent;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 15px;
+    z-index: 1;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    z-index: 1;
+}
+
+.service-badge {
+    align-self: flex-start;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-badge {
+    background: rgba(236, 72, 153, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Navbar CTA 'Get a Free Quote' Button */
+.btn-nav.quote-btn {
+    border: 1px solid var(--accent) !important;
+    color: white !important;
+    background: transparent;
+    padding: 8px 20px !important;
+    border-radius: 30px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-nav.quote-btn:hover {
+    background: var(--gradient) !important;
+    border-color: transparent !important;
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.4) !important;
+}
+
+/* Secondary CTA 'Get a Free Quote' Hero button adjustments */
+.hero-btns .quote-btn {
+    border-color: var(--accent);
+}
+
+.hero-btns .quote-btn:hover {
+    background: rgba(236, 72, 153, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.2);
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
 }
 

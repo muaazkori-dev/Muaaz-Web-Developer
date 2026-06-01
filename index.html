@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muaaz Web Developer</title>
     <!-- Favicon Icon -->
-    <link rel="icon" type="image/png" href="icon_v2.png">
+    <link rel="icon" type="image/jpeg" href="LOgo.jpg">
     <link rel="stylesheet" href="style.css?v=5">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,9 +24,9 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#projects">Projects</a></li>
-            <!-- <li><a href="#reviews">Reviews</a></li> -->
-            <li><a href="#contact" class="btn-nav">Contact</a></li>
+            <li><a href="#contact" class="btn-nav quote-btn">Get a Free Quote</a></li>
         </ul>
         <div class="hamburger">
             <i class="fas fa-bars"></i>
@@ -47,6 +47,7 @@
             </div>
             <div class="hero-btns">
                 <a href="#contact" class="btn primary-btn">Hire Me <i class="fas fa-arrow-right"></i></a>
+                <a href="#contact" class="btn secondary-btn quote-btn">Get a Free Quote <i class="fas fa-file-invoice-dollar"></i></a>
             </div>
         </div>
         <div class="hero-image">
@@ -95,6 +96,41 @@
         </div>
     </section>
 
+    <section id="services" class="services section">
+        <div class="section-title">
+            <h2>Our Custom <span class="gradient-text">Services</span></h2>
+            <p style="color: var(--text-muted); margin-top: 15px; text-align: center; max-width: 650px; margin-left: auto; margin-right: auto; font-size: 1.1rem;">
+                As a custom developer, I craft tailor-made digital solutions to match your business requirements perfectly. If you can imagine it, I can build it.
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                <h3>E-commerce Stores</h3>
+                <p>Fully customized online stores equipped with advanced inventories, secure checkout integrations, fast payment portals, and friendly admin dashboards.</p>
+                <div class="service-badge">Vibrant Stores</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Business Websites</h3>
+                <p>High-converting professional corporate sites, designed to boost your brand value, capture premium leads, and maximize your search engine ranking.</p>
+                <div class="service-badge">Enterprise UI</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Personal Brand & Portfolios</h3>
+                <p>Eye-catching modern portfolios and landing pages designed with dynamic transitions and animations to make your professional profile stand out.</p>
+                <div class="service-badge">Creative Brands</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-code"></i></div>
+                <h3>Custom Web Applications</h3>
+                <p>Bespoke web applications, custom databases, CRM systems, industrial business platforms, and specialized API integrations tailored for you.</p>
+                <div class="service-badge">100% Custom Made</div>
+            </div>
+        </div>
+    </section>
+
     <section id="projects" class="projects section">
         <div class="section-title">
             <h2>My Digital <span class="gradient-text">Creations</span></h2>
@@ -103,6 +139,12 @@
         <div class="projects-grid">
             <!-- CARD 1 -->
             <div class="project-card">
+                <div class="project-image">
+                    <img src="flour_mill_preview.png" alt="B2B Flour Mill Management Mockup">
+                    <div class="project-overlay">
+                        <a href="https://flour-mill.m-web.dev" target="_blank" class="btn primary-btn preview-btn">Live Preview <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
                 <div class="project-content">
                     <h3>B2B Flour Mill Management</h3>
                     <p>A custom logic-driven system for local industrial business tracking.</p>
@@ -111,12 +153,18 @@
                         <span>Business Tool</span>
                         <span>Deployment</span>
                     </div>
-                    <a href="https://flour-mill.m-web.dev" target="_blank" class="btn secondary-btn project-btn">View Project <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://flour-mill.m-web.dev" target="_blank" class="btn secondary-btn project-btn">Live Preview <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
 
             <!-- CARD 2 -->
             <div class="project-card">
+                <div class="project-image">
+                    <img src="real_estate_preview.png" alt="Signature Luxury Real Estate Mockup">
+                    <div class="project-overlay">
+                        <a href="https://estate.m-web.dev" target="_blank" class="btn primary-btn preview-btn">Live Preview <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
                 <div class="project-content">
                     <h3>Signature Luxury Real Estate</h3>
                     <p>A premium, minimalist portal for high-end property listings.</p>
@@ -125,12 +173,18 @@
                         <span>Modern Design</span>
                         <span>Real Estate</span>
                     </div>
-                    <a href="https://estate.m-web.dev" target="_blank" class="btn secondary-btn project-btn">View Project <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://estate.m-web.dev" target="_blank" class="btn secondary-btn project-btn">Live Preview <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
 
             <!-- CARD 3 -->
             <div class="project-card">
+                <div class="project-image">
+                    <img src="neo_tech_preview.png" alt="Neo-Tech Future Store Mockup">
+                    <div class="project-overlay">
+                        <a href="https://neo-tech-portal.m-web.dev/" target="_blank" class="btn primary-btn preview-btn">Live Preview <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
                 <div class="project-content">
                     <h3>Neo-Tech Future Store</h3>
                     <p>A futuristic, dark-themed e-commerce experience for next-gen gadgets.</p>
@@ -139,7 +193,7 @@
                         <span>Cyberpunk Style</span>
                         <span>Bento Grid</span>
                     </div>
-                    <a href="https://neo-tech-portal.m-web.dev/" target="_blank" class="btn secondary-btn project-btn">View Project <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://neo-tech-portal.m-web.dev/" target="_blank" class="btn secondary-btn project-btn">Live Preview <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -276,6 +330,12 @@
             <p>Designed with <i class="fas fa-heart" style="color: var(--accent);"></i></p>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923029111856" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with me!</span>
+    </a>
 
     <script src="script.js"></script>
 </body>
