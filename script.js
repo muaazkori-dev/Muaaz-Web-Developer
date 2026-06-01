@@ -525,10 +525,51 @@ function initTypewriter() {
 }
 
 // ==========================================
+// 4. Mobile Bottom Nav ScrollSpy Logic
+// ==========================================
+function initMobileNavScrollSpy() {
+    const navItems = document.querySelectorAll('.mobile-nav-item');
+    const sections = document.querySelectorAll('section[id]');
+
+    if (!navItems.length) return;
+
+    window.addEventListener('scroll', () => {
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 180; // Offset for mobile scroll spy
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        if (currentSectionId) {
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${currentSectionId}`) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+
+    // Handle clicks to set active class instantly
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            navItems.forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+}
+
+// ==========================================
 // Initialize all features on DOM Content Load
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     initEstimator();
     initInteractiveCursor();
     initTypewriter();
+    initMobileNavScrollSpy();
 });
