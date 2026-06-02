@@ -2019,3 +2019,14 @@ a {
     }
 }
 
+/* Fiverr SVG transition inside social icons */
+.social-links a svg,
+.footer-socials a svg {
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover svg,
+.footer-socials a:hover svg {
+    transform: scale(1.1);
+}
+
