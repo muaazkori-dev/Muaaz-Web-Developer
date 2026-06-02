@@ -1782,3 +1782,115 @@ a {
     }
 }
 
+/* Fiverr Integration Styles */
+:root {
+    --fiverr-green: #1dbf73;
+    --fiverr-glow: rgba(29, 191, 115, 0.2);
+}
+
+/* Hero Section Fiverr Badge */
+.fiverr-hero-badge {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start;
+    animation: fadeUp 1s ease 0.6s both;
+}
+
+.fiverr-badge-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(29, 191, 115, 0.08);
+    border: 1px solid rgba(29, 191, 115, 0.25);
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.fiverr-badge-link:hover {
+    background: rgba(29, 191, 115, 0.15);
+    border-color: var(--fiverr-green);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(29, 191, 115, 0.15);
+}
+
+.fiverr-icon-container {
+    width: 24px;
+    height: 24px;
+    background: var(--fiverr-green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.fiverr-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Estimator Fiverr Checkout Button */
+.fiverr-summary-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px 35px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 12px;
+    background: transparent;
+    border: 1px solid rgba(29, 191, 115, 0.4);
+    color: #ffffff;
+}
+
+.fiverr-summary-btn:hover {
+    background: rgba(29, 191, 115, 0.1);
+    border-color: var(--fiverr-green);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(29, 191, 115, 0.15);
+}
+
+.fiverr-summary-btn i {
+    font-size: 1.2rem;
+    color: var(--fiverr-green);
+}
+
+/* Breathing Green Dot Pulse */
+.green-dot {
+    display: inline-block;
+    animation: greenPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes greenPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+        filter: drop-shadow(0 0 4px var(--fiverr-green));
+    }
+}
+
+/* Adjust centering on mobile hero */
+@media (max-width: 768px) {
+    .fiverr-hero-badge {
+        justify-content: center;
+    }
+}
+
