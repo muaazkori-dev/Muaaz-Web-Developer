@@ -708,6 +708,78 @@ a {
     justify-content: center;
 }
 
+/* Highlighted Featured Project Layout */
+.project-card.featured {
+    grid-column: 1 / -1; /* Spans across all 3 grid columns on desktop */
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Split layout */
+    border-color: rgba(236, 72, 153, 0.3); /* Subtle accent color border */
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.8), rgba(10, 10, 10, 0.9));
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.05);
+}
+
+.project-card.featured:hover {
+    border-color: var(--accent);
+    box-shadow: 0 15px 35px rgba(236, 72, 153, 0.25), 0 0 25px rgba(99, 102, 241, 0.1);
+}
+
+.project-card.featured .project-image {
+    height: 100%;
+    min-height: 380px;
+    border-bottom: none;
+    border-right: 1px solid var(--border-color);
+}
+
+.project-card.featured .featured-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--gradient);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.project-card.featured .project-content {
+    justify-content: center;
+    padding: 40px;
+}
+
+.project-card.featured .project-content h3 {
+    font-size: 2.2rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+}
+
+/* Adjust layout on smaller/mobile devices */
+@media (max-width: 1024px) {
+    .project-card.featured {
+        grid-template-columns: 1fr; /* Normal card top-down layout */
+    }
+    .project-card.featured .project-image {
+        height: 280px;
+        min-height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .project-card.featured .project-content {
+        padding: 30px;
+    }
+}
+
 .modern-footer {
     background: var(--card-bg);
     border-top: 1px solid var(--border-color);
