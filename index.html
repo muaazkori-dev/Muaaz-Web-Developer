@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="LOgo.jpg">
 
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=6">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Vercel Analytics -->
@@ -208,9 +208,32 @@
         </div>
         
         <div class="projects-grid">
-            <!-- FEATURED CARD -->
+            <!-- FEATURED CARD 1 (HR Traders) -->
             <div class="project-card featured">
-                <div class="featured-badge"><i class="fas fa-star"></i> Featured E-Commerce</div>
+                <div class="featured-badge"><i class="fas fa-star"></i> Real Production Project</div>
+                <div class="project-image">
+                    <img src="hr_traders_preview.png" alt="HR Traders Online Grocery Store Mockup">
+                    <div class="project-overlay">
+                        <a href="https://thehrtraders.com/" target="_blank" class="btn primary-btn preview-btn">Live Preview <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>HR Traders | Premium Online Grocery & Grain Store</h3>
+                    <p>A live, fully-functional online grocery and organic crops store. Features an advanced, secure <strong>Admin Control Panel</strong> for custom catalog updates, stock/inventory quantity tracking, custom billing, and active customer order management workflows.</p>
+                    <div class="project-tags">
+                        <span>Custom PHP Backend</span>
+                        <span>Interactive Admin Panel</span>
+                        <span>Tailwind CSS</span>
+                        <span>PWA (Offline Support)</span>
+                        <span>Live Search & Cart</span>
+                    </div>
+                    <a href="https://thehrtraders.com/" target="_blank" class="btn secondary-btn project-btn">Live Preview <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <!-- FEATURED CARD 2 (Eez Clothes) -->
+            <div class="project-card featured">
+                <div class="featured-badge"><i class="fab fa-react"></i> React Production Project</div>
                 <div class="project-image">
                     <img src="eez_clothes_preview.png" alt="Eez Clothes VIP Premium Shirts Mockup">
                     <div class="project-overlay">
@@ -219,18 +242,27 @@
                 </div>
                 <div class="project-content">
                     <h3>Eez Clothes | VIP Premium Shirts</h3>
-                    <p>A luxurious, high-performance fashion apparel store built for premium garment shoppers. Engineered with reactive cart actions, dynamic page-routing, and high-fidelity layouts.</p>
+                    <p>A luxurious, high-performance fashion apparel store built with modern interfaces, reactive shopping cart dynamics, and custom React context logic.</p>
                     <div class="project-tags">
                         <span>React.js</span>
-                        <span>JSX</span>
                         <span>Vite Compilations</span>
+                        <span>Context API State</span>
                         <span>React Router</span>
-                        <span>Context API (State Management)</span>
                     </div>
                     <a href="https://emc.m-web.dev/" target="_blank" class="btn secondary-btn project-btn">Live Preview <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
+        </div>
 
+        <!-- Toggle Projects Button -->
+        <div class="projects-toggle-container">
+            <button id="toggle-projects-btn" class="btn secondary-btn" onclick="toggleProjects()">
+                View All Projects <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+
+        <!-- Collapsible Projects Grid -->
+        <div class="projects-grid collapsible-projects" id="collapsible-projects" style="display: none; margin-top: 40px;">
             <!-- CARD 1 -->
             <div class="project-card">
                 <div class="project-image">

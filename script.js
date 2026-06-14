@@ -573,3 +573,47 @@ document.addEventListener('DOMContentLoaded', () => {
     initTypewriter();
     initMobileNavScrollSpy();
 });
+
+// ==========================================
+// 5. Collapsible Projects Section Toggle
+// ==========================================
+function toggleProjects() {
+    const grid = document.getElementById('collapsible-projects');
+    const btn = document.getElementById('toggle-projects-btn');
+    if (!grid || !btn) return;
+
+    if (grid.style.display === 'none' || grid.style.display === '') {
+        // Show projects
+        grid.style.display = 'grid';
+        // Trigger reflow to apply transition
+        grid.offsetHeight;
+        grid.style.opacity = '1';
+        grid.style.transform = 'translateY(0)';
+        
+        btn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+        
+        // Smooth scroll to the collapsible section
+        setTimeout(() => {
+            grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 150);
+    } else {
+        // Hide projects
+        grid.style.opacity = '0';
+        grid.style.transform = 'translateY(20px)';
+        
+        // Wait for the transition to finish before display: none
+        setTimeout(() => {
+            grid.style.display = 'none';
+            btn.innerHTML = 'View All Projects <i class="fas fa-chevron-down"></i>';
+            
+            // Smooth scroll back to projects section heading
+            const projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+                window.scrollTo({
+                    top: projectsSection.offsetTop - 80, // Offset for fixed navbar
+                    behavior: 'smooth'
+                });
+            }
+        }, 600); // match transition duration of 0.6s
+    }
+}

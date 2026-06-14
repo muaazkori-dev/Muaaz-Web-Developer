@@ -854,6 +854,45 @@ a {
     }
 }
 
+/* Projects Toggle Container */
+.projects-toggle-container {
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 20px;
+}
+
+#toggle-projects-btn {
+    padding: 14px 32px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 30px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#toggle-projects-btn:hover {
+    background: var(--gradient);
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+#toggle-projects-btn i {
+    transition: transform 0.3s ease;
+}
+
+/* Collapsible Projects Grid Transition Classes */
+.collapsible-projects {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .modern-footer {
     background: var(--card-bg);
     border-top: 1px solid var(--border-color);
